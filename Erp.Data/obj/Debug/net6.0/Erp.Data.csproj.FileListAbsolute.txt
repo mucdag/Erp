@@ -1,0 +1,13 @@
+D:\denemeler\Erp\Erp.Data\bin\Debug\net6.0\Erp.Data.deps.json
+D:\denemeler\Erp\Erp.Data\bin\Debug\net6.0\Erp.Data.dll
+D:\denemeler\Erp\Erp.Data\bin\Debug\net6.0\ref\Erp.Data.dll
+D:\denemeler\Erp\Erp.Data\bin\Debug\net6.0\Erp.Data.pdb
+D:\denemeler\Erp\Erp.Data\obj\Debug\net6.0\Erp.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\denemeler\Erp\Erp.Data\obj\Debug\net6.0\Erp.Data.AssemblyInfoInputs.cache
+D:\denemeler\Erp\Erp.Data\obj\Debug\net6.0\Erp.Data.AssemblyInfo.cs
+D:\denemeler\Erp\Erp.Data\obj\Debug\net6.0\Erp.Data.ImplicitNamespaceImports.cs
+D:\denemeler\Erp\Erp.Data\obj\Debug\net6.0\Erp.Data.csproj.CoreCompileInputs.cache
+D:\denemeler\Erp\Erp.Data\obj\Debug\net6.0\Erp.Data.dll
+D:\denemeler\Erp\Erp.Data\obj\Debug\net6.0\ref\Erp.Data.dll
+D:\denemeler\Erp\Erp.Data\obj\Debug\net6.0\Erp.Data.pdb
+D:\denemeler\Erp\Erp.Data\obj\Debug\net6.0\Erp.Data.csproj.AssemblyReference.cache

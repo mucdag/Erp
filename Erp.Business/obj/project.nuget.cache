@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "kCMjJGg8JAPYh8fykkslowpIGibrpr4gslI5gtJ5drgfJH7gn5JETtZTswFHBViS75+aXYouhpWrq4pTEs1sBA==",
+  "success": true,
+  "projectFilePath": "D:\\denemeler\\Erp\\Erp.Business\\Erp.Business.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dell\\.nuget\\packages\\automapper\\7.0.1\\automapper.7.0.1.nupkg.sha512",
+    "C:\\Users\\Dell\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
