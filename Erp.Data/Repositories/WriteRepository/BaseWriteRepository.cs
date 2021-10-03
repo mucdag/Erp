@@ -1,28 +1,19 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Linq.Expressions;
+﻿using Core.Utilities;
 using Erp.Data.Interfaces;
+using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
+using System;
+using System.Collections.Generic;
 
 namespace Erp.Data.Repositories.WriteRepositories
 {
-    public class BaseWriteRepository<TEntity, TKeyType> : IBaseWriteRepository<TEntity, TKeyType>
-        where TEntity : class, IEntityBase<TKeyType>
+    public class BaseWriteRepository<TEntity, TKeyType> : IBaseWriteRepository<TEntity, TKeyType> where TEntity : class, IEntityBase<TKeyType>
     {
         protected DbContext _context;
         protected IQueryable<TEntity> _dbQuery;
         private readonly DbSet<TEntity> _dbSet;
-
-
-        private static readonly IDictionary<string, string> _tableKeys;
-        private static readonly IDictionary<string, string> _tableNames;
-
-        static readonly object _tableKeysLockObject = new object();
-        static readonly object _tableNamesLockObject = new object();
-
-        static BaseWriteRepository()
-        {
-            _tableKeys = new Dictionary<string, string>();
-            _tableNames = new Dictionary<string, string>();
-        }
 
         public BaseWriteRepository(DbContext context)
         {
@@ -31,12 +22,11 @@ namespace Erp.Data.Repositories.WriteRepositories
             _dbQuery = _dbSet.AsNoTracking();
         }
 
-        public virtual async Task AddAsync(TEntity entity, bool addLog = true)
+        public virtual async Task AddAsync(TEntity entity)
         {
             try
             {
-                //entity.CreatedByUserId = Convert.ToInt32(CurrentUser.UserIdentity?.Name);
-                entity.CreatedByUserId = entity.CreatedByUserId == 0 ? null : entity.CreatedByUserId;
+                entity.CreatedByUserId = Convert.ToInt32(CurrentUser.UserIdentity?.Name);
             }
             catch (Exception)
             {
@@ -50,7 +40,7 @@ namespace Erp.Data.Repositories.WriteRepositories
             await SaveChangesAsync();
         }
 
-        public virtual async Task AddRangeAsync(List<TEntity> entities, bool addLog = true)
+        public virtual async Task AddRangeAsync(List<TEntity> entities)
         {
             foreach (var entity in entities)
             {
@@ -58,8 +48,7 @@ namespace Erp.Data.Repositories.WriteRepositories
                 entity.UpdatingDate = null;
                 try
                 {
-                    //entity.CreatedByUserId = Convert.ToInt32(CurrentUser.UserIdentity?.Name);
-                    entity.CreatedByUserId = entity.CreatedByUserId == 0 ? null : entity.CreatedByUserId;
+                    entity.CreatedByUserId = Convert.ToInt32(CurrentUser.UserIdentity?.Name);
                 }
                 catch (Exception)
                 {
@@ -71,7 +60,7 @@ namespace Erp.Data.Repositories.WriteRepositories
             await SaveChangesAsync();
         }
 
-        public virtual async Task DeleteAsync(TEntity entity, bool addLog = true)
+        public virtual async Task DeleteAsync(TEntity entity)
         {
             if (IsAttach(entity))
             {
@@ -104,7 +93,7 @@ namespace Erp.Data.Repositories.WriteRepositories
             }
         }
 
-        public virtual async Task DeleteRangeAsync(List<TEntity> entities, bool addLog = true)
+        public virtual async Task DeleteRangeAsync(List<TEntity> entities)
         {
             foreach (var entity in entities)
             {
@@ -145,14 +134,13 @@ namespace Erp.Data.Repositories.WriteRepositories
             return entity;
         }
 
-        public virtual async Task UpdateAsync(TEntity entity, Expression<Func<TEntity, object>>[]? properties = null, bool addLog = true)
+        public virtual async Task UpdateAsync(TEntity entity, Expression<Func<TEntity, object>>[]? properties = null)
         {
             entity.UpdatingDate = DateTime.Now;
 
             try
             {
-                //entity.UpdatedByUserId = Convert.ToInt32(CurrentUser.UserIdentity?.Name);
-                entity.UpdatedByUserId = entity.UpdatedByUserId == 0 ? null : entity.UpdatedByUserId;
+                entity.UpdatedByUserId = Convert.ToInt32(CurrentUser.UserIdentity?.Name);
             }
             catch (Exception)
             {
@@ -201,7 +189,7 @@ namespace Erp.Data.Repositories.WriteRepositories
             }
         }
 
-        public virtual async Task UpdateRangeAsync(List<TEntity> entities, Expression<Func<TEntity, object>>[]? properties = null, bool addLog = true)
+        public virtual async Task UpdateRangeAsync(List<TEntity> entities, Expression<Func<TEntity, object>>[]? properties = null)
         {
             foreach (var entity in entities)
             {
@@ -209,8 +197,7 @@ namespace Erp.Data.Repositories.WriteRepositories
 
                 try
                 {
-                    //entity.UpdatedByUserId = Convert.ToInt32(CurrentUser.UserIdentity?.Name);
-                    entity.UpdatedByUserId = entity.UpdatedByUserId == 0 ? null : entity.UpdatedByUserId;
+                    entity.UpdatedByUserId = Convert.ToInt32(CurrentUser.UserIdentity?.Name);
                 }
                 catch (Exception)
                 {
@@ -292,7 +279,6 @@ namespace Erp.Data.Repositories.WriteRepositories
 
         private bool IsAttach(TEntity entity)
         {
-            //return _dbSet.Local.Any(x => x == entity);
             return _context.Entry(entity).State == EntityState.Detached;
         }
 
@@ -317,45 +303,6 @@ namespace Erp.Data.Repositories.WriteRepositories
         {
             if (expression != null) return await _dbQuery.Where(expression).MaxAsync(property);
             return await _dbQuery.MaxAsync(property);
-        }
-
-        private string GetTableName()
-        {
-            lock (_tableNamesLockObject)
-            {
-                var typeName = typeof(TEntity).FullName;
-
-                if (_tableNames.TryGetValue(typeName, out string value))
-                    return value;
-
-                var mapping = _context.Model.FindEntityType(typeof(TEntity));
-
-                var tableName = $"{mapping.GetSchema()}.{mapping.GetTableName()}";
-                _tableNames.Add(typeName, tableName);
-                return tableName;
-            }
-        }
-
-        private string GetPrimaryKey()
-        {
-            lock (_tableKeysLockObject)
-            {
-                var typeName = typeof(TEntity).FullName;
-
-                if (_tableKeys.TryGetValue(typeName, out string value))
-                    return value;
-
-                var mapping = _context.Model.FindEntityType(typeof(TEntity));
-                var key = mapping.FindPrimaryKey().Properties.Select(x => x.Name).Single();
-                _tableKeys.Add(typeName, key);
-                return key;
-            }
-        }
-
-        private TKeyType GetPrimayKeyValue(TEntity entity)
-        {
-            var key = GetPrimaryKey();
-            return (TKeyType)entity.GetType().GetProperty(key).GetValue(entity);
         }
 
     }

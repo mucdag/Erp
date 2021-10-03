@@ -5,6 +5,15 @@ using Erp.Data.Contexts;
 using Microsoft.AspNetCore.Server.IISIntegration;
 using Microsoft.EntityFrameworkCore;
 using Core.Aspects.ApiFilters;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
+using Core.Utilities.IoC;
+using Erp.Business.DependencyResolvers.DotNetCore.RepositoryModuleBinding;
+using Erp.Business.DependencyResolvers.DotNetCore.ManagerModuleBinding;
+using Erp.Core.Extensions;
+using Erp.Business.DependencyResolvers.DotNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 string policyName = "AllowOrigin";
@@ -37,10 +46,7 @@ builder.Services.AddControllers(options =>
     options.Filters.Add(typeof(PerformanceLogFilter));
 }).AddDataAnnotationsLocalization().AddJsonOptions(options => options.JsonSerializerOptions.IgnoreNullValues = true);
 
-//builder.Services.LoadDependencyResolvers(new ICoreModule[] { new SharedModuleBinding(),
-//                new WriteRepositoryModuleBinding(), new ReadRepositoryModuleBinding() ,new WriteManagerModuleBinding(), new ReadManagerModuleBinding()});
-
-//builder.Services.AddDependencyResolvers(new ICoreModule[] { new CoreModule(), new BusinessInfrastructureCoreModule() });
+builder.Services.LoadDependencyResolvers(new ICoreModule[] { new SharedModuleBinding(), new WriteRepositoryModuleBinding(), new ReadRepositoryModuleBinding(), new WriteManagerModuleBinding(), new ReadManagerModuleBinding() });
 
 builder.Services.AddSwaggerGen(c =>
 {

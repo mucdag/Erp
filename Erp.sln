@@ -12,9 +12,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Erp.Business", "Erp.Business\Erp.Business.csproj", "{ECEA0D51-CC06-40C1-8916-690803D6A92A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Erp.Business", "Erp.Business\Erp.Business.csproj", "{ECEA0D51-CC06-40C1-8916-690803D6A92A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Erp.RestService", "Erp.RestService\Erp.RestService.csproj", "{291B30F2-FC80-4CFC-B0D7-FF41CCCC8FA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Erp.RestService", "Erp.RestService\Erp.RestService.csproj", "{291B30F2-FC80-4CFC-B0D7-FF41CCCC8FA6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0-Core", "0-Core", "{6DEAA1E9-CBD7-40E2-BB7A-9404CDEDA226}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Data", "1-Data", "{C53F2DA1-213F-43D7-B1E0-C03587031F90}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Business", "2-Business", "{50468551-9A26-4782-83CA-3A83F05FF674}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Api", "3-Api", "{931605ED-0D12-42C5-A939-E40A1A353E0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +49,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3B83361D-9D83-4A01-A67B-D1A43356C1FC} = {6DEAA1E9-CBD7-40E2-BB7A-9404CDEDA226}
+		{3EC13091-8A3B-4551-97FE-DF03F769C17A} = {C53F2DA1-213F-43D7-B1E0-C03587031F90}
+		{ECEA0D51-CC06-40C1-8916-690803D6A92A} = {50468551-9A26-4782-83CA-3A83F05FF674}
+		{291B30F2-FC80-4CFC-B0D7-FF41CCCC8FA6} = {931605ED-0D12-42C5-A939-E40A1A353E0A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {81C99C2B-08FC-42EF-BF77-49ADCAC583D8}

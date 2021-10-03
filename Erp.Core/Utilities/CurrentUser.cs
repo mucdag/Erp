@@ -42,7 +42,6 @@ namespace Core.Utilities
                     {
                         Name = idntty.Name,
                         User = httpContext.HttpContext.User.Claims.Where(x => x.Type == ClaimTypes.Email).FirstOrDefault()?.Value,
-                        DeviceId = httpContext.HttpContext.User.Claims.Where(x => x.Type == "DeviceId").FirstOrDefault()?.Value,
                         PersonId = personId != null ? Convert.ToInt32(personId) : 0,
                         AuthenticationType = idntty.AuthenticationType,
                         IsAuthenticated = idntty.IsAuthenticated
@@ -59,8 +58,7 @@ namespace Core.Utilities
                         IsAuthenticated = idntty.IsAuthenticated
                     };
                 }
-                else { return null; }
-                //return null;
+                return null;
             }
         }
 

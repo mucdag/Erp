@@ -1,8 +1,5 @@
 D:\denemeler\Erp\Erp.RestService\bin\Debug\net6.0\appsettings.Development.json
 D:\denemeler\Erp\Erp.RestService\bin\Debug\net6.0\appsettings.json
-D:\denemeler\Erp\Erp.RestService\bin\Debug\net6.0\Erp.RestService.staticwebassets.json
-D:\denemeler\Erp\Erp.RestService\bin\Debug\net6.0\Erp.RestService.staticwebassets.runtime.json
-D:\denemeler\Erp\Erp.RestService\bin\Debug\net6.0\Erp.RestService.StaticWebAssets.xml
 D:\denemeler\Erp\Erp.RestService\bin\Debug\net6.0\Erp.RestService.exe
 D:\denemeler\Erp\Erp.RestService\bin\Debug\net6.0\Erp.RestService.deps.json
 D:\denemeler\Erp\Erp.RestService\bin\Debug\net6.0\Erp.RestService.runtimeconfig.json
@@ -16,11 +13,8 @@ D:\denemeler\Erp\Erp.RestService\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger
 D:\denemeler\Erp\Erp.RestService\obj\Debug\net6.0\Erp.RestService.GeneratedMSBuildEditorConfig.editorconfig
 D:\denemeler\Erp\Erp.RestService\obj\Debug\net6.0\Erp.RestService.AssemblyInfoInputs.cache
 D:\denemeler\Erp\Erp.RestService\obj\Debug\net6.0\Erp.RestService.AssemblyInfo.cs
-D:\denemeler\Erp\Erp.RestService\obj\Debug\net6.0\Erp.RestService.ImplicitNamespaceImports.cs
 D:\denemeler\Erp\Erp.RestService\obj\Debug\net6.0\Erp.RestService.csproj.CoreCompileInputs.cache
-D:\denemeler\Erp\Erp.RestService\obj\Debug\net6.0\Erp.RestService.MvcApplicationPartsAssemblyInfo.cs
 D:\denemeler\Erp\Erp.RestService\obj\Debug\net6.0\Erp.RestService.MvcApplicationPartsAssemblyInfo.cache
-D:\denemeler\Erp\Erp.RestService\obj\Debug\net6.0\Erp.RestService.StaticWebAssets.xml
 D:\denemeler\Erp\Erp.RestService\obj\Debug\net6.0\StaticWebAssets.build.json
 D:\denemeler\Erp\Erp.RestService\obj\Debug\net6.0\scopedcss\bundle\Erp.RestService.styles.css
 D:\denemeler\Erp\Erp.RestService\obj\Debug\net6.0\Erp.RestService.csproj.CopyComplete
@@ -83,3 +77,5 @@ D:\denemeler\Erp\Erp.RestService\bin\Debug\net6.0\Erp.Data.dll
 D:\denemeler\Erp\Erp.RestService\bin\Debug\net6.0\Erp.Business.pdb
 D:\denemeler\Erp\Erp.RestService\bin\Debug\net6.0\Erp.Core.pdb
 D:\denemeler\Erp\Erp.RestService\bin\Debug\net6.0\Erp.Data.pdb
+D:\denemeler\Erp\Erp.RestService\obj\Debug\net6.0\Erp.RestService.MvcApplicationPartsAssemblyInfo.cs
+D:\denemeler\Erp\Erp.RestService\obj\Debug\net6.0\staticwebassets.development.json

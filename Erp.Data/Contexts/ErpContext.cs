@@ -1,9 +1,12 @@
-﻿using Erp.Data.Mappings.Persons;
+﻿using Erp.Data.Mappings.People;
 using Erp.Data.Mappings.Users;
-using Erp.Data.Models.Persons;
+using Erp.Data.Models.People;
 using Erp.Data.Models.Users;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Erp.Data.Contexts
 {
@@ -19,8 +22,8 @@ namespace Erp.Data.Contexts
 
         }
 
-        #region Persons
-        public DbSet<Person> Persons { get; set; }
+        #region People
+        public DbSet<Person> People { get; set; }
         public DbSet<PersonEmailAddress> PersonEmailAddresses { get; set; }
         #endregion
 
@@ -62,14 +65,13 @@ namespace Erp.Data.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            #region Person
+            #region People
             modelBuilder.ApplyConfiguration(new PersonMap());
             modelBuilder.ApplyConfiguration(new PersonEmailAddressMap());
             #endregion
 
             #region Users
             modelBuilder.ApplyConfiguration(new UserMap());
-
             #endregion
         }
     }

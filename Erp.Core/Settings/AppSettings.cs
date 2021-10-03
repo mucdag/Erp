@@ -4,14 +4,12 @@
     {
         public string ConnectionString { get; set; }
         public string FolderPath { get; set; }
-        public string MongoDbName { get; set; }
-        public string LogDbName { get; set; }
-        public string EmailConfirmExpiryDate { get; set; }
-        public string PasswordResetExpiryDate { get; set; }
-        public string FailedLoginAttemptCount { get; set; }
-        public string FailedLoginAttemptMinutes { get; set; }
-        public string SecuredOperation { get; set; }
-        public string LogoCon { get; set; }
+        public int JwtExpiryinDays { get; set; }
+        public string JwtSecurityKey { get; set; }
+        public string JwtIssuer { get; set; }
+        public int FailedLoginAttemptCount { get; set; }
+        public int FailedLoginAttemptMinutes { get; set; }
+        public bool SecuredOperation { get; set; }
         public PushNotificationsOptions PushNotificationsOptions { get; set; }
     }
     public class PushNotificationsOptions

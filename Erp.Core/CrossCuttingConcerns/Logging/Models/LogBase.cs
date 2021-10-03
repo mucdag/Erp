@@ -19,7 +19,6 @@ namespace Core.CrossCuttingConcerns.Logging.Models
 		public string Parameters { get; set; }
 		public string LogInfo { get; set; }
 		public string User { get; set; } = CurrentUser.UserIdentity?.User;
-		public string DeviceId { get; set; } = CurrentUser.DeviceId;
 		public string UserAgent { get; set; } = CurrentUser.UserAgent;
 		public string Language { get; set; } = CurrentUser.Language;
 		public string IPAddresses { get; set; } = CurrentUser.IPAdresses;

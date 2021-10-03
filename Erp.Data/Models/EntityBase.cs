@@ -1,4 +1,5 @@
 ﻿using Erp.Data.Interfaces;
+using System;
 
 namespace Erp.Data.Models
 {

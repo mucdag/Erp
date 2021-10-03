@@ -1,8 +1,8 @@
-﻿using Erp.Data.Models.Persons;
+﻿using Erp.Data.Models.People;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Erp.Data.Mappings.Persons
+namespace Erp.Data.Mappings.People
 {
     public class PersonEmailAddressMap : MappingBase<PersonEmailAddress, int>, IEntityTypeConfiguration<PersonEmailAddress>
     {
@@ -16,9 +16,7 @@ namespace Erp.Data.Mappings.Persons
             builder.Property(t => t.PersonId).IsRequired().HasColumnName("PersonId");
             builder.Property(t => t.EmailAddress).HasMaxLength(100).IsRequired().HasColumnName("EmailAddress");
 
-            builder.HasOne(t => t.Person)
-                .WithMany(t => t.PersonEmailAddresses)
-                .HasForeignKey(d => d.PersonId);
+            builder.HasOne(t => t.Person).WithMany(t => t.PersonEmailAddresses).HasForeignKey(d => d.PersonId);
         }
     }
 }

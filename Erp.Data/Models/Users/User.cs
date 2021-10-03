@@ -1,4 +1,4 @@
-﻿using Erp.Data.Models.Persons;
+﻿using Erp.Data.Models.People;
 
 namespace Erp.Data.Models.Users
 {

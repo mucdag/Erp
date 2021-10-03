@@ -1,6 +1,7 @@
 ﻿using Erp.Data.Models.Users;
+using System.Collections.Generic;
 
-namespace Erp.Data.Models.Persons
+namespace Erp.Data.Models.People
 {
     public class Person : EntityBase<int>
     {

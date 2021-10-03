@@ -5,9 +5,7 @@ D:\denemeler\Erp\Erp.Core\bin\Debug\net6.0\Erp.Core.pdb
 D:\denemeler\Erp\Erp.Core\obj\Debug\net6.0\Erp.Core.GeneratedMSBuildEditorConfig.editorconfig
 D:\denemeler\Erp\Erp.Core\obj\Debug\net6.0\Erp.Core.AssemblyInfoInputs.cache
 D:\denemeler\Erp\Erp.Core\obj\Debug\net6.0\Erp.Core.AssemblyInfo.cs
-D:\denemeler\Erp\Erp.Core\obj\Debug\net6.0\Erp.Core.ImplicitNamespaceImports.cs
 D:\denemeler\Erp\Erp.Core\obj\Debug\net6.0\Erp.Core.csproj.CoreCompileInputs.cache
 D:\denemeler\Erp\Erp.Core\obj\Debug\net6.0\Erp.Core.dll
 D:\denemeler\Erp\Erp.Core\obj\Debug\net6.0\ref\Erp.Core.dll
 D:\denemeler\Erp\Erp.Core\obj\Debug\net6.0\Erp.Core.pdb
-D:\denemeler\Erp\Erp.Core\obj\Debug\net6.0\Erp.Core.csproj.AssemblyReference.cache

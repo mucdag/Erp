@@ -14,4 +14,8 @@
     <Folder Include="Repositories\ReadRepository\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Erp.Core\Erp.Core.csproj" />
+  </ItemGroup>
+
 </Project>

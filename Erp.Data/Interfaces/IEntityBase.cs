@@ -1,4 +1,6 @@
-﻿namespace Erp.Data.Interfaces
+﻿using System;
+
+namespace Erp.Data.Interfaces
 {
     public interface IEntityBase<KeyType>
     {
