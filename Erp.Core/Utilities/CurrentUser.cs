@@ -109,21 +109,6 @@ namespace Core.Utilities
                 return string.Empty;
             }
         }
-        public static string DeviceId
-        {
-            get
-            {
-                try
-                {
-                    return ServiceTool.ServiceProvider.GetService<IHttpContextAccessor>().HttpContext.User.Claims.Where(x => x.Type == "DeviceId").FirstOrDefault()?.Value;
-                }
-                catch (Exception)
-                {
-                }
-
-                return string.Empty;
-            }
-        }
 
         public static string Language
         {

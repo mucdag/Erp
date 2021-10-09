@@ -1,4 +1,5 @@
-﻿using Core.Settings;
+﻿using Core.CrossCuttingConcerns.AppSecurity;
+using Core.Settings;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Erp.Core.TokenService
 {
-    public class TokenService<T> : ITokenService<T> where T : class
+    public class TokenService : ITokenService
     {
         private readonly int expiryinDays;
         private readonly string jwtSecurityKey;
@@ -23,11 +24,13 @@ namespace Erp.Core.TokenService
             jwtIssuer = options.Value.JwtIssuer;
         }
 
-        public string BuildToken(T userData)
+        public string BuildToken(ErpIdentity userData)
         {
             var claims = new[]
             {
-                new Claim(ClaimTypes.NameIdentifier, Guid.NewGuid().ToString())
+                new Claim("Name", userData.Name),
+                new Claim("User", userData.User),
+                new Claim("PersonId", userData.PersonId.ToString()),
             };
 
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecurityKey));

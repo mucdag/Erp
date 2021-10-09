@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Erp.Core\Erp.Core.csproj" />
+    <ProjectReference Include="..\Erp.View\Erp.View.csproj" />
   </ItemGroup>
 
 </Project>

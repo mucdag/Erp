@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Core.CrossCuttingConcerns.AppSecurity;
 
 namespace Erp.Core.TokenService
 {
-    public interface ITokenService<T> where T : class
+    public interface ITokenService
     {
-        string BuildToken(T userData);
+        string BuildToken(ErpIdentity userData);
     }
 }

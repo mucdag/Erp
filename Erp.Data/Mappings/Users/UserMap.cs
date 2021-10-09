@@ -18,6 +18,10 @@ namespace Erp.Data.Mappings.Users
             builder.Property(x => x.IsActive).IsRequired().HasColumnName("IsActive");
             builder.Property(x => x.Description).IsRequired(false).HasColumnName("Description");
 
+            builder.Property(x => x.PasswordResetExpiryDate).IsRequired(false).HasColumnName("PasswordResetExpiryDate");
+            builder.Property(x => x.PasswordResetCode).IsRequired(false).HasColumnName("PasswordResetCode");
+            builder.Property(x => x.IsPasswordShouldBeReset).IsRequired().HasColumnName("IsPasswordShouldBeReset");
+
             builder.HasOne(x => x.Person).WithMany(x => x.Users).HasForeignKey(x => x.PersonId);
             builder.HasOne(x => x.PersonEmailAddress).WithMany(x => x.Users).HasForeignKey(x => x.PersonEmailAddressId);
 

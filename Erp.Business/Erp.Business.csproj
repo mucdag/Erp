@@ -7,12 +7,16 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="7.0.1" />
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="5.0.10" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Erp.Core\Erp.Core.csproj" />
     <ProjectReference Include="..\Erp.Data\Erp.Data.csproj" />
+    <ProjectReference Include="..\Erp.Resource\Erp.Resource.csproj" />
+    <ProjectReference Include="..\Erp.View\Erp.View.csproj" />
   </ItemGroup>
 
 </Project>

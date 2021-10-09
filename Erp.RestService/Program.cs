@@ -14,6 +14,9 @@ using Erp.Business.DependencyResolvers.DotNetCore.RepositoryModuleBinding;
 using Erp.Business.DependencyResolvers.DotNetCore.ManagerModuleBinding;
 using Erp.Core.Extensions;
 using Erp.Business.DependencyResolvers.DotNetCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 string policyName = "AllowOrigin";
@@ -53,6 +56,24 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new() { Title = "Erp.RestService", Version = "v1" });
 });
 
+builder.Services.AddAuthentication(opt =>
+{
+    opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(opt =>
+{
+    opt.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["AppSettings.JwtIssuer"],
+        ValidAudience = builder.Configuration["AppSettings.JwtAudience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["AppSettings.JwtSecurityKey"]))
+    };
+});
+
 #endregion
 var app = builder.Build();
 
@@ -67,6 +88,7 @@ if (builder.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+app.UseAuthentication();
 
 app.MapControllers();
 

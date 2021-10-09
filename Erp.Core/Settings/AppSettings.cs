@@ -4,9 +4,11 @@
     {
         public string ConnectionString { get; set; }
         public string FolderPath { get; set; }
+        public int PasswordResetExpiryDate { get; set; }
         public int JwtExpiryinDays { get; set; }
         public string JwtSecurityKey { get; set; }
         public string JwtIssuer { get; set; }
+        public string JwtAudience { get; set; }
         public int FailedLoginAttemptCount { get; set; }
         public int FailedLoginAttemptMinutes { get; set; }
         public bool SecuredOperation { get; set; }
